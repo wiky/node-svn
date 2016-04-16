@@ -39,3 +39,7 @@ API base on SVN standard commands ([svn command reference](http://riaoo.com/subp
 
 todo
 ....
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wiky/node.svn/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
