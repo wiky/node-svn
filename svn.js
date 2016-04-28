@@ -482,12 +482,14 @@ svn.run = function(args, callback, cwd) {
 	proc.on('error', function(error) {
 		var result = null;
 		err = new Error('[SVN ERROR:404] svn command not found');
-		if (error.code === 'ENOENT' && callback) {
-			result = callback(err);
+		if (error.code === 'ENOENT') {
+			// Force kill now. Callback will be executed when `ChildProcess#close` will be emitted
+			proc.kill('ENOENT');
+			return;
 		}
 		p.done(err, result);
 	});
-
+	
 	proc.on('close', function(code) {
 		var result = null;
 		if (callback) {
